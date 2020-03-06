@@ -19,7 +19,7 @@ The first part of these exercises is a series of pure functions for you to solve
 
 ---
 
-## TDD: Numbery Organizer Object
+## TDD: Numbery Organizer
 
 > [`./object.js'](./object.js) & [`./tests`](./tests)
 
