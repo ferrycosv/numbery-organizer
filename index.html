@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Numbery Organizer</title>
+  <meta name="description" content="week 1 project">
+
+  <script src="./dependencies/toString.js"></script>
+
+  <script src="./dependencies/prism/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="./dependencies/prism/style.css">
+
+  <link href="./dependencies/mocha/mocha.css" rel="stylesheet" />
+  <script src="./dependencies/mocha/mocha.js"></script>
+
+  <script src="./dependencies/assert.js"></script>
+
+  <script src="./object.js"></script>
+
+  <script src='./init.js'></script>
+
+</head>
+
+<body>
+
+  <header style='display:flex; flex-direction: row;'>
+    <h2>Numbery Organizer</h2>
+    <div id='dynamic-buttons' style="padding-top:20px; padding-left:15px;"></div>
+  </header>
+
+
+  <section id='code and tests' style='height:90vh; display:flex; flex-direction: row;'>
+
+    <div id='code side' style='width:50%;max-height:100%;overflow-y:scroll'>
+      <pre style='font-size:80%;'><code id='object-code' class="language-js"></code></pre>
+      <script>
+        const objectToSource = toVariableString(object);
+        document.getElementById('object-code').innerHTML = null;
+        document.getElementById('object-code').appendChild(
+          document.createTextNode(objectToSource)
+        );
+        Prism.highlightAllUnder(document.getElementById('object-code'));
+      </script>
+    </div>
+
+    <div id="mocha" style='width:50%;margin-right:0;margin-top:0;margin-left:0;max-height:100%;overflow-y:scroll'></div>
+
+    <script>
+      mocha.setup({
+        ui: 'bdd',
+        noHighlighting: true
+      })
+    </script>
+    <script src="./tests/is-nany-string.js"></script>
+    <script src="./tests/add-string.js"></script>
+    <script src="./tests/is-non-mutating.js"></script>
+    <script src="./tests/all-strings.js"></script>
+    <script src="./tests/even-strings.js"></script>
+    <script src="./tests/odd-strings.js"></script>
+    <script src="./tests/negative-strings.js"></script>
+    <script src="./tests/positive-strings.js"></script>
+    <script src="./tests/zero-strings.js"></script>
+    <script src="./tests/numbery-as-numbers.js"></script>
+    <script src="./tests/nany-as-numbers.js"></script>
+    <script src="./tests/sum-of-numbery.js"></script>
+    <script src="./tests/sum-of-nany.js"></script>
+    <script>
+      mocha.run();
+    </script>
+
+  </section>
+
+
+
+</body>
+
+</html>
